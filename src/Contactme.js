@@ -11,13 +11,13 @@ export default class Contactme extends Component {
         }
     }
     componentDidMount(){
-       
+
             $('.contact-box').css('display','flex')
-      
+
         setTimeout(_=>{
             $('.sentence').css('opacity', 1)
             this.sentenceAnimation()
-            
+
             setTimeout(_ => $('.know-more').css('animation', 'fade 1s ease-in forwards'),1000)
         },1400)
         $('.know-more').click(_=>{
@@ -40,25 +40,25 @@ export default class Contactme extends Component {
                 $('#ellipse2 .slider').css('display', 'flex')
             },2500)
         })
-        $('#c_next').click(_=>{
-            this.handleNext()
-            
-        })
-        $('#c_prev').click(_ => {
-           
-        })
-        $('#ellipse2').bind('mousewheel', (e)=> {
-           
-            if (e.originalEvent.wheelDelta / 120 > 0) {
-                setTimeout(_ => this.handlePrev(), 200)
-            }
-            else {
-                setTimeout(_ => this.handleNext(), 200)
-                
-            }
-        });
-       
-        
+        // $('#c_next').click(_=>{
+        //     this.handleNext()
+
+        // })
+        // $('#c_prev').click(_ => {
+
+        // })
+        // $('#ellipse2').bind('mousewheel', (e)=> {
+
+        //     if (e.originalEvent.wheelDelta / 120 > 0) {
+        //         setTimeout(_ => this.handlePrev(), 200)
+        //     }
+        //     else {
+        //         setTimeout(_ => this.handleNext(), 200)
+
+        //     }
+        // });
+
+
     }
     handleNext=()=>{
         $('#ellipse2 .slider .slides').animate({ 'left': this.state.breadCrumb === 'Skills' ? '0' : '-300px' }, 'fast')
@@ -92,22 +92,22 @@ export default class Contactme extends Component {
         $(".sentence span").each(function (index) {
             $(this).css({
                 'animation-delay': 50 * (1 + index) + 'ms',
-                
+
             });
         });
     }
 
-    
+
     render() {
-      
+
          return (
             <div id="contact" className="contact-page">
                 <div className="contact-box">
                      <div className='cls-6 middle-line'></div>
                      <div id="ellipse1" style={{borderRadius:'50%'}}></div>
                      <div id="ellipse2" style={{borderRadius: '50%' }}>
-                         <img className="profile-picture" style={{width:'100%',objectFit:'cover',height:'100%',borderRadius:'10%'}} alt="personal infos" src="./images/profile.jpg"></img>
-                         <h3><span>Rikesh</span> <span style={{ color:'#373737'}}>Shrestha</span></h3>                         
+                            <img className="profile-picture" style={{width:'100%',objectFit:'cover',height:'100%',borderRadius:'10%'}} alt="personal infos" src="./images/profile.jpg"></img>
+                         <h3><span>Rikesh</span> <span style={{ color:'#373737'}}>Shrestha</span></h3>
                             <div className="slider">
                                 <div className="slides">
                                     <div className="contact-info" style={{display:'flex',justifyContent:'flex-start',flexDirection:'column'}}>
@@ -124,7 +124,7 @@ export default class Contactme extends Component {
                                             <h3><span>sr1k3sh@gmail.com</span></h3>
                                         </div>
                                     </div>
-                                    <div className="personal-skills">
+                                    {/* <div className="personal-skills">
                                         <div className="contact-details-section">
                                             <img style={{width:'24px'}} src="./svg/internet.svg" alt='/'></img>
                                             <h3><span> Web Development</span></h3>
@@ -137,7 +137,7 @@ export default class Contactme extends Component {
                                          <img style={{ width: '24px' }} src="./svg/smartphone.svg" alt='/'></img>
                                             <h3><span>Hybrid Mobile App</span></h3>
                                         </div>
-                                    </div>
+                                    </div> */}
                                 </div>
                             </div>
                             <div className="contact-details-section-social">
@@ -165,28 +165,28 @@ export default class Contactme extends Component {
                             </svg>
                                 <svg version="1.1" id="instagram"  x="0px" y="0px"
 	                                viewBox="0 0 551.034 551.034" >
-                                    
+
                                         <path  d="M386.878,0H164.156C73.64,0,0,73.64,0,164.156v222.722
                                             c0,90.516,73.64,164.156,164.156,164.156h222.722c90.516,0,164.156-73.64,164.156-164.156V164.156
                                             C551.033,73.64,477.393,0,386.878,0z M495.6,386.878c0,60.045-48.677,108.722-108.722,108.722H164.156
                                             c-60.045,0-108.722-48.677-108.722-108.722V164.156c0-60.046,48.677-108.722,108.722-108.722h222.722
                                             c60.045,0,108.722,48.676,108.722,108.722L495.6,386.878L495.6,386.878z"/>
-                                        
-                                            
+
+
                                         <path  d="M275.517,133C196.933,133,133,196.933,133,275.516s63.933,142.517,142.517,142.517
                                             S418.034,354.1,418.034,275.516S354.101,133,275.517,133z M275.517,362.6c-48.095,0-87.083-38.988-87.083-87.083
                                             s38.989-87.083,87.083-87.083c48.095,0,87.083,38.988,87.083,87.083C362.6,323.611,323.611,362.6,275.517,362.6z"/>
-                                        
-                                            
+
+
                                         <circle  cx="418.31" cy="134.07" r="34.15"/>
-                                    
+
                                 </svg>
                                 <svg id="github" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="m12 .5c-6.63 0-12 5.28-12 11.792 0 5.211 3.438 9.63 8.205 11.188.6.111.82-.254.82-.567 0-.28-.01-1.022-.015-2.005-3.338.711-4.042-1.582-4.042-1.582-.546-1.361-1.335-1.725-1.335-1.725-1.087-.731.084-.716.084-.716 1.205.082 1.838 1.215 1.838 1.215 1.07 1.803 2.809 1.282 3.495.981.108-.763.417-1.282.76-1.577-2.665-.295-5.466-1.309-5.466-5.827 0-1.287.465-2.339 1.235-3.164-.135-.298-.54-1.497.105-3.121 0 0 1.005-.316 3.3 1.209.96-.262 1.98-.392 3-.398 1.02.006 2.04.136 3 .398 2.28-1.525 3.285-1.209 3.285-1.209.645 1.624.24 2.823.12 3.121.765.825 1.23 1.877 1.23 3.164 0 4.53-2.805 5.527-5.475 5.817.42.354.81 1.077.81 2.182 0 1.578-.015 2.846-.015 3.229 0 .309.21.678.825.56 4.801-1.548 8.236-5.97 8.236-11.173 0-6.512-5.373-11.792-12-11.792z" />  
+                                    <path d="m12 .5c-6.63 0-12 5.28-12 11.792 0 5.211 3.438 9.63 8.205 11.188.6.111.82-.254.82-.567 0-.28-.01-1.022-.015-2.005-3.338.711-4.042-1.582-4.042-1.582-.546-1.361-1.335-1.725-1.335-1.725-1.087-.731.084-.716.084-.716 1.205.082 1.838 1.215 1.838 1.215 1.07 1.803 2.809 1.282 3.495.981.108-.763.417-1.282.76-1.577-2.665-.295-5.466-1.309-5.466-5.827 0-1.287.465-2.339 1.235-3.164-.135-.298-.54-1.497.105-3.121 0 0 1.005-.316 3.3 1.209.96-.262 1.98-.392 3-.398 1.02.006 2.04.136 3 .398 2.28-1.525 3.285-1.209 3.285-1.209.645 1.624.24 2.823.12 3.121.765.825 1.23 1.877 1.23 3.164 0 4.53-2.805 5.527-5.475 5.817.42.354.81 1.077.81 2.182 0 1.578-.015 2.846-.015 3.229 0 .309.21.678.825.56 4.801-1.548 8.236-5.97 8.236-11.173 0-6.512-5.373-11.792-12-11.792z" />
                                  </svg>
                             </div>
-                         <div className="next">
-                                
+                         {/* <div className="next">
+
                                 <svg version="1.1" id="c_prev" x="0px" y="0px" viewBox="0 0 240.823 240.823" >
                                     <path id="Chevron_Right_1_" d="M183.189,111.816L74.892,3.555c-4.752-4.74-12.451-4.74-17.215,0c-4.752,4.74-4.752,12.439,0,17.179
                                     l99.707,99.671l-99.695,99.671c-4.752,4.74-4.752,12.439,0,17.191c4.752,4.74,12.463,4.74,17.215,0l108.297-108.261
@@ -198,13 +198,13 @@ export default class Contactme extends Component {
                                     l99.707,99.671l-99.695,99.671c-4.752,4.74-4.752,12.439,0,17.191c4.752,4.74,12.463,4.74,17.215,0l108.297-108.261
                                     C187.881,124.315,187.881,116.495,183.189,111.816z"/>
 	                            </svg>
-                            </div>
+                            </div> */}
                      </div>
                         <h1 class="sentence title">
                             What more you want to know about me?
-                        </h1>                       
+                        </h1>
                         <button className="know-more" style={{opacity:0}}>know <span style={{ color:'#ff4145'}}>More</span></button>
-                    </div>                
+                    </div>
             </div>
         )
     }

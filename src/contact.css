@@ -1,5 +1,5 @@
 .contact-page{
-    display: flex;    
+    display: flex;
     width:100%;
     height:100%;
     position: relative;
@@ -24,26 +24,26 @@
 
 @keyframes fade{
     from{
-        
+
         opacity: 0;
     }
     to{
         opacity: 1;}
 }
-                       
+
       .cls-5 {
               stroke: none;
               }
            .middle-line{
             animation: translateRect 2s cubic-bezier(0.950, 0.050, 0.795, 0.035) forwards;
                 opacity: 1;
-            }  
+            }
             .reverse-line{
               animation:reversetranslateRect 3s cubic-bezier(1.000, 0.000, 0.000, 1.000) forwards;
-            }  
-                
+            }
+
       .cls-6 {
-       z-index: 1;    
+       z-index: 1;
     transform-origin: 57% 67%;
     transform: translateX(-100px);
     position: absolute;
@@ -52,22 +52,22 @@
     backdrop-filter: saturate(180%) blur(20px);
     background-color: #222222e6;
             }
-            
+
 @keyframes translateRect{
     0%{
         transform: translateY(-100%);
         opacity:0;
     }
     40%{
-        transform: translateY(-50%);        
+        transform: translateY(-50%);
         opacity:1;
-       
-    }      
+
+    }
     50%{
         transform: translateY(-50%);
-        
+
     }
-   
+
     100%{
         transform: rotate(120deg) scaleY(1.5) scaleX(2);
         opacity:1;
@@ -79,17 +79,17 @@
         opacity:1;
     }
     40%{
-        transform: translateY(-50%);        
+        transform: translateY(-50%);
         opacity:1;
         /* transform:translateY(0%) */
-    }      
+    }
     50%{
         transform: translateY(-50%);
-        
+
     }
-   
+
     100%{
-      
+
          transform: translateY(-100%);
         opacity:0;
     }
@@ -102,14 +102,14 @@
         transform:rotate(45deg)
     }
 }
-                     
-     
+
+
 
 #ellipse1{
     position:absolute;
-    
+
     left:10%;
-    top:12%;
+    top:50%;
     animation:translate 2s cubic-bezier(0.39, 0.575, 0.565, 1) forwards,zoom 2s cubic-bezier(0.39, 0.575, 0.565, 1) forwards;
     /* background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
     opacity: 0.4; */
@@ -132,7 +132,7 @@
      backdrop-filter: blur(20px);
 }
 #ellipse1:hover::after{
-    
+
     /* backdrop-filter: blur(20px); */
 opacity: 0;
 }
@@ -145,11 +145,11 @@ opacity: 0;
     justify-content: center;
     align-items: center;
     left:50%;
-    top:12%;
+    top:50%;
     animation:translate 2s cubic-bezier(0.39, 0.575, 0.565, 1) reverse forwards,zoom 2s cubic-bezier(0.39, 0.575, 0.565, 1) forwards;
     /* background-image: linear-gradient(to right, #ff758c 0%, #ff7eb3 100%); */
      background-color: #ff4145b0;
-    
+
     /* opacity: 0.4; */
     backdrop-filter: blur(20px);
 }
@@ -182,9 +182,9 @@ opacity: 0;
     width:300px;
 }
 #ellipse2 .contact-details-section img{
-   
+
     margin-right:5px;
-    
+
 }
 #ellipse2 .contact-details-section{
     display: flex;
@@ -255,18 +255,18 @@ opacity: 0;
 /* #121318 */
 @keyframes zoom{
      0%{
-       
-        transform:scale(0);
-       
+
+        transform:scale(0) translateY(-50%);
+
     }
     20%{
-        transform:scale(1.03);
+        transform:scale(1.03)  translateY(-50%);
     }
     40%{
-        transform:scale(1.2);
+        transform:scale(1.2)  translateY(-50%);
     }
     100%{
-        transform:scale(1);
+        transform:scale(1) translateY(-50%);
     }
 }
 @keyframes translate {
@@ -290,11 +290,11 @@ opacity: 0;
 @keyframes rotation1 {
 		0% {
                 transform: rotate(0deg);
-                
+
 		}
 		100% {
                 transform: rotate(359deg);
-                 
+
 		}
 }
 
@@ -313,9 +313,9 @@ opacity: 0;
   stroke-dashoffset: 500;
   }
 .contact-header tspan{
-   
+
   animation: dash 2s linear infinite;
-  
+
 }
 #contact-me-question{
     font-family: 'Quicksand', sans-serif;
@@ -357,7 +357,7 @@ opacity: 0;
     border-bottom-color: #ff4145;
     top:48%;
     z-index: 2;
-   
+
     left:74%;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
@@ -367,7 +367,7 @@ opacity: 0;
     border-top-color: #ff4145;
      border-right-color: #fff;
     border-bottom-color: #fff;
-    
+
 }
 
 .sentence {
@@ -412,8 +412,9 @@ opacity: 0;
 #ellipse1,#ellipse2{
     width:600px;
     height:600px;
+    transform: translate(0,-50%);
 }
-@media only screen and (max-width: 1366px) {
+@media only screen and (max-width: 1600px) {
     #ellipse1,#ellipse2{
         width:430px;
         height:430px;

@@ -112,24 +112,11 @@ export default class Aboutme extends Component {
 
         }
 
-        $('.year').hover(_ => {
-           console.log()
-            // setTimeout((x)=>{
-            //     // $('#timeline-text-' + _.target.dataset.year).css({display:'flex'})
-            //     // $('#timeline-text-'+_.target.dataset.year).fadeIn()
-            // },200)
-
-                this.setState({
-                    timeLine: date[_.target.dataset.year]
-                })
-
-
-            $('#timeline-text').css({ 'animation': 'loading 0.8s linear forwards'});
-            $('.container-details').css({ 'background': '#f0f8ff40', 'backdrop-filter': 'blur(20px)' })
-        }, _ => {
-            $('#timeline-text').css({ 'animation': 'unloading 0.8s linear forwards' });
-            $('.container-details').css({ 'background': 'transparent', 'backdrop-filter': 'blur(2px)' })
-        })
+        $('.year').on('mouseenter',_ => {
+            this.setState({
+                timeLine: date[_.target.dataset.year]
+            });
+        });
     }
     hoverEffect(){
         var container = document.getElementById('about-con')
@@ -239,11 +226,9 @@ export default class Aboutme extends Component {
                         </div>
                     </div>
                     <div className="big-container">
-                        <div className="container-details">
-
                             <h1 id="timeline-text">{this.state.timeLine}</h1>
-
-                        </div>
+                        {/* <div className="container-details">
+                        </div> */}
                     </div>
                     <div className="medium-container1">
                     </div>

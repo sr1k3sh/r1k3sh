@@ -27,17 +27,17 @@ export default class FirstPage extends Component {
     }
   }
   componentWillMount() {
-  
+
     if (navigator.geolocation && !this.state.isLoaded) {
       // Call getCurrentPosition with success and failure callbacks
       navigator.geolocation.getCurrentPosition(this.success, this.fail);
-     
+
     }
     else {
       alert("Sorry, your browser does not support geolocation services.");
     }
-    
-   
+
+
   }
   weatherLoad=()=>{
     let that = this
@@ -47,7 +47,7 @@ export default class FirstPage extends Component {
       url: `https://api.darksky.net/forecast/8adaa664d67a4ecfcc5aff8a99260f16/${this.state.latitude},${this.state.longitude}`,
       success: function (data) {
         that.setState({
-          
+
           value: data,
           currently:data.currently,
           temperature: data.currently.temperature +' °F',
@@ -68,39 +68,45 @@ export default class FirstPage extends Component {
       }
     })
   }
-  success=(position)=> {     
+  success=(position)=> {
     this.setState({
       isLoaded:true,
-      latitude: Math.round(position.coords.latitude*100)/100 ,
+      latitude: 0 ,
       longitude: Math.round(position.coords.longitude*100)/100
     })
     console.log(this.state.latitude,this.state.longitude)
-  
+
   this.weatherLoad()
-  
+
   }
 
   fail=()=> {
     console.log('sorry')
+    this.setState({
+      isLoaded:true,
+      latitude: 0 ,
+      longitude: 0
+    })
     // Could not obtain location
   }
   loadResourse = () => {
-    
-    
+
+
     if (!this.state.isLoaded)
       return <div className="spinner"></div>
     else
-      var icon = this.state.icon 
+      var icon = this.state.icon || "CLEAR_DAY";
+      console.log(icon)
       return (
       <div className="weather-container" style={{display:'flex',flexDirection:'column',justifyContent:'center',alignItems:'center'}}>
           <div className="weather-field">
             <h1>
                 <Clock format={'HH:mm:ss'} ticking={true} timezone={this.state.value.timezone} />
-            </h1> 
+            </h1>
             <h3>{this.state.value.timezone}</h3>
             <h4>{this.state.temperature} </h4>
           </div>
-          <div className="weather-icon">   
+          <div className="weather-icon">
             {<ReactAnimatedWeather
               icon={icon}
               color={'#fff'}
@@ -112,7 +118,7 @@ export default class FirstPage extends Component {
       )
   }
   componentDidMount(){
-  
+
     setTimeout(_=>{
       $('.weather .weather-container .weather-field').css({
         'opacity': '1',
@@ -125,12 +131,12 @@ export default class FirstPage extends Component {
           $('.welcome-text .slogan h1#slogan2').css({
             'opacity': '1',
             'animation': 'loading 0.7s ease-in forwards'
-          })          
+          })
           setTimeout(_=>{
             $('.welcome-text .slogan h1#slogan3').css({
               'opacity': '1',
               'animation': 'loading 0.7s ease-in forwards'
-            })   
+            })
             setTimeout(_ => {
               $('.welcome-text .slogan h1#slogan4').css({
                 'opacity': '1',
@@ -146,9 +152,9 @@ export default class FirstPage extends Component {
                     'opacity': '1',
                     'animation': 'loading 0.7s ease-in forwards'
                   })
-                }, 900) 
-              }, 900)   
-            },900)     
+                }, 900)
+              }, 900)
+            },900)
           },900)
         },900)
     },900)
@@ -157,15 +163,15 @@ export default class FirstPage extends Component {
 
   return (
     <div className="main">
-     
+
       <div className="home-page-container">
         <div className="home-page-left">
-        
+
           <div className="weather">
-           
+
             {this.loadResourse()}
           </div>
-         
+
           <div className="welcome-text">
             <div className="slogan">
               <h1 id="slogan1">I EAT</h1>
@@ -173,7 +179,7 @@ export default class FirstPage extends Component {
               <h1 id="slogan3">SLEEP</h1>
               <h1 id="slogan4">&#38;</h1>
               <h1 id="slogan5">REPEAT</h1>
-            </div> 
+            </div>
             <div>
               <p><span>What I do?</span></p>
             </div>
