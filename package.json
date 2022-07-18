@@ -8,7 +8,7 @@
     "give-me-a-joke": "^0.1.2",
     "hover-effect": "^1.0.5",
     "jquery": "^3.4.1",
-    "jquery-ui": "^1.12.1",
+    "jquery-ui": "^1.13.2",
     "lodash-es": "^4.17.15",
     "p5": "^0.9.0",
     "random-joke-getter": "^2.0.3",
